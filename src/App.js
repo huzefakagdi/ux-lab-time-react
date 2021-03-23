@@ -4,10 +4,11 @@ function App() {
   const [time, setTime] = useState("no time set");
 
   async function getTime() {
-    const res = await fetch("");
-    const responseObject = await res.text();
+    let { text } = await( await fetch(`/api/message`)).json();
+    // const res = await fetch("");
+    // const responseObject = await res.text();
 
-    setTime(responseObject);
+    setTime(text);
   }
 
   return (
